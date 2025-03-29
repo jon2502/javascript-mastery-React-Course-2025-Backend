@@ -8,7 +8,7 @@ module.exports = {
             method: 'GET',
              headers: {
                 accept: 'application/json',
-                Authorization: `Bearer fds` 
+                Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}` 
             }
         }
         fetch(URL, OPTIONS)
@@ -18,5 +18,18 @@ module.exports = {
     },
 
     Movie_Search: async function (req, res, next) {
+        let query = req.params.query;
+        const URL = `${API_BASE_URL}/search/movie?query=${query}`
+        const OPTIONS = {
+            method: 'GET',
+             headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}` 
+            }
+        }
+        fetch(URL, OPTIONS)
+            .then(res => res.json())
+            .then(json => res.json(json))
+            .catch(err => res.json(err));
     }
 }

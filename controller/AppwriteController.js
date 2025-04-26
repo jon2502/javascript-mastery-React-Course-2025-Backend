@@ -44,14 +44,12 @@ module.exports = {
                 Query.limit(5),
                 Query.orderDesc("Count")
             ])
-            //console.log(result.documents)
             const sanatizedDoc = result.documents.map(doc => ({
                 movie_ID: doc.movie_ID,
                 Title: doc.Title,
                 poster_URL: doc.poster_URL
 
             }))
-            //console.log(sanatizedDoc)
             return res.json({results:sanatizedDoc})
             
         }catch(error){

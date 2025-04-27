@@ -11,8 +11,7 @@ var app = express();
 const allowedOrigin = 'https://jon2502.github.io/javascript-mastery-React-Course-2025/';
 
 app.use((req, res, next) => {
-    const origin = req.get('Origin');
-    const Referer = req.get('Referer');
+    const origin = req.get('Origin') || req.get('Referer');
     console.log(origin)
     if (origin && origin.startsWith(allowedOrigin)) {
       next();

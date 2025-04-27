@@ -14,7 +14,6 @@ app.use((req, res, next) => {
     const origin = req.get('Origin');
     const Referer = req.get('Referer');
     console.log(origin)
-    console.log(Referer)
     if (origin && origin.startsWith(allowedOrigin)) {
       next();
     } else {

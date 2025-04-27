@@ -12,13 +12,12 @@ const allowedOrigin = 'https://jon2502.github.io/javascript-mastery-React-Course
 
 app.use((req, res, next) => {
     const origin = req.get('Origin') || req.get('Referer');
-    console.log(origin)
     if (origin && origin.startsWith(allowedOrigin)) {
       next();
     } else {
       res.status(403).send('Forbidden');
     }
-});
+  });
 
 app.use(cors())
 app.use(logger('dev'));

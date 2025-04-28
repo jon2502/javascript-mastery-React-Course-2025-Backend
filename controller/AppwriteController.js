@@ -15,7 +15,7 @@ const DATABASE_ID = process.env.APPWRITE_DATABASE_ID;
 const COLLECTION_ID = process.env.APPWRITE_COLLECTION_ID;
 
 module.exports = {
-    updateSearchCount: async function (req) {
+    updateSearchCount: async function (req, res) {
         try{
             const result = await database.listDocuments(DATABASE_ID, COLLECTION_ID,[
                 Query.equal('Title', req.body.Title)])
@@ -36,7 +36,7 @@ module.exports = {
         }catch(error){
             console.error('Error updating search count:', error)
         }
-        req.end()
+        res.end()
     },
     
     getTrendingMovies: async function (req, res) {

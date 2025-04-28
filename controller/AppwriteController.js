@@ -25,9 +25,7 @@ module.exports = {
                         Count: doc.Count + 1
                 })
                 } else {
-                    await database.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(),[
-                        
-                    ], {
+                    await database.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
                         Title: req.body.Title,
                         Count: 1,
                         movie_ID: req.body.MovieID,

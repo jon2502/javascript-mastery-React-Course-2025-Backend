@@ -21,8 +21,6 @@ module.exports = {
             const result = await database.listDocuments(DATABASE_ID, COLLECTION_ID,[
                 Query.equal('Title', req.body.Title)], [
                     body('Title').isNumeric().withMessage('Must be string').notEmpty().withMessage('Username is required'),
-                    body('MovieID').isString().withMessage('must be number').notEmpty().withMessage('Username is required'),
-                    body('Poster').isURL().withMessage('must be URL').notEmpty().withMessage('Username is required'),
                 ])
                 if(result.documents.length > 0){
                     const doc = result.documents[0]
@@ -30,7 +28,11 @@ module.exports = {
                         Count: doc.Count + 1
                 })
                 } else {
-                    await database.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
+                    await database.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(),[
+                        body('Title').isNumeric().withMessage('Must be string').notEmpty().withMessage('Username is required'),
+                        body('MovieID').isString().withMessage('must be number').notEmpty().withMessage('Username is required'),
+                        body('Poster').isURL().withMessage('must be URL').notEmpty().withMessage('Username is required'),
+                    ], {
                         Title: req.body.Title,
                         Count: 1,
                         movie_ID: req.body.MovieID,

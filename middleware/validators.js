@@ -8,7 +8,6 @@ const validateSearchData = [
     body('Poster').isURL().withMessage('must be URL').notEmpty().withMessage('Username is required'),
     (req, res, next) => {
         const errors = validationResult(req)
-        console.log(errors)
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
           }

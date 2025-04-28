@@ -10,6 +10,8 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+app.use((req, res, next) => {console.log(req)})
+
 app.use(helmet());
 app.use(cors())
 app.use(logger('dev'));

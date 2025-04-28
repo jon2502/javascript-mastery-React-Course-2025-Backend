@@ -1,6 +1,6 @@
 
 const sdk = require('node-appwrite');
-const { query, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 const { ID, Query } = sdk;
 
 let client = new sdk.Client();
@@ -19,7 +19,11 @@ module.exports = {
     updateSearchCount: async function (req) {
         try{
             const result = await database.listDocuments(DATABASE_ID, COLLECTION_ID,[
-                Query.equal('Title', req.body.Title)])
+                Query.equal('Title', req.body.Title)], [
+                    body('Title').isNumeric().withMessage('Must be string').notEmpty().withMessage('Username is required'),
+                    body('MovieID').isString().withMessage('must be number').notEmpty().withMessage('Username is required'),
+                    body('Poster').isURL().withMessage('must be URL').notEmpty().withMessage('Username is required'),
+                ])
                 if(result.documents.length > 0){
                     const doc = result.documents[0]
                     await database.updateDocument(DATABASE_ID, COLLECTION_ID, doc.$id, {

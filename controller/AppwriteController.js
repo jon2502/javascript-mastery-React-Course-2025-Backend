@@ -36,7 +36,7 @@ module.exports = {
         }catch(error){
             console.error('Error updating search count:', error)
         }
-        res.end()
+        req.end()
     },
     
     getTrendingMovies: async function (req, res) {

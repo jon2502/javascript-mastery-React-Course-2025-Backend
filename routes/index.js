@@ -15,7 +15,7 @@ router.get('/TMDB/:query',TMDBCon.Movie_Search, function(req, res, next) {
     
 });
 
-router('TMDB/:movieID', TMDBCon.specific_Movie, function(req, res, next) {
+router.get('TMDB/:movieID', TMDBCon.specific_Movie, function(req, res, next) {
     
 });
 

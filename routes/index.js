@@ -15,6 +15,10 @@ router.get('/TMDB/:query',TMDBCon.Movie_Search, function(req, res, next) {
     
 });
 
+router('TMDB/:movieID', TMDBCon.specific_Movie, function(req, res, next) {
+    
+});
+
 router.post('/Appwrite/postSearch', validator, AppwriteCon.updateSearchCount, function(req, res, next) {
 
 })

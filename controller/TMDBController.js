@@ -31,5 +31,21 @@ module.exports = {
             .then(res => res.json())
             .then(json => res.json(json))
             .catch(err => res.json(err));
+    },
+
+    //curently being tested
+    specific_Movie: async function (req, res, next) {
+        const URL = `${API_BASE_URL}/discover/movie/${movieID}?append_to_response=credits`
+        const OPTIONS = {
+            method: 'GET',
+             headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${process.env.TMDB_API_ACCESS_TOKEN}` 
+            }
+        }
+        fetch(URL, OPTIONS)
+            .then(res => res.json())
+            .then(json => res.json(json))
+            .catch(err => res.json(err));
     }
 }

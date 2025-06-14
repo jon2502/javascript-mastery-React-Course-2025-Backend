@@ -33,7 +33,6 @@ module.exports = {
             .catch(err => res.json(err));
     },
 
-    //curently being tested
     specific_Movie: async function (req, res, next) {
         let movieID = req.params.movieID;
         console.log(movieID)
@@ -49,5 +48,5 @@ module.exports = {
             .then(res => res.json())
             .then(json => res.json(json))
             .catch(err => res.json(err));
-    },
+    }
 }

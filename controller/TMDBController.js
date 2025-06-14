@@ -35,6 +35,7 @@ module.exports = {
 
     //curently being tested
     specific_Movie: async function (req, res, next) {
+        console.log('begin')
         let movieID = req.params.movieID;
         //test
         console.log(movieID)

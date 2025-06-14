@@ -11,11 +11,11 @@ router.get('/TMDB',TMDBCon.Popular_Movies, function(req, res, next) {
 
 });
 
-router.get('/TMDB/:query',TMDBCon.Movie_Search, function(req, res, next) {
+router.get('/TMDB/Search/:query',TMDBCon.Movie_Search, function(req, res, next) {
     
 });
 
-router.get('TMDB/:movieID', TMDBCon.specific_Movie, function(req, res, next) {
+router.get('TMDB/Select/:movieID', TMDBCon.specific_Movie, function(req, res, next) {
     
 });
 

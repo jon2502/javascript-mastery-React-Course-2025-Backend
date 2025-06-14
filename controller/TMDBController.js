@@ -36,7 +36,9 @@ module.exports = {
     //curently being tested
     specific_Movie: async function (req, res, next) {
         let movieID = req.params.movieID;
-        const URL = `${API_BASE_URL}/discover/movie/${movieID}?append_to_response=credits`
+        //test
+        console.log(movieID)
+        const URL = `${API_BASE_URL}/movie/${movieID}?append_to_response=credits`
         const OPTIONS = {
             method: 'GET',
              headers: {

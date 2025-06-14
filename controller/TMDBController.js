@@ -35,9 +35,7 @@ module.exports = {
 
     //curently being tested
     specific_Movie: async function (req, res, next) {
-        console.log('begin')
         let movieID = req.params.movieID;
-        //test
         console.log(movieID)
         const URL = `${API_BASE_URL}/movie/${movieID}?append_to_response=credits`
         const OPTIONS = {
@@ -51,5 +49,5 @@ module.exports = {
             .then(res => res.json())
             .then(json => res.json(json))
             .catch(err => res.json(err));
-    }
+    },
 }
